@@ -1,5 +1,8 @@
 import cv2 as opencv
 
+video_file_name = 'camera_capture.avi'
+frame_rate = 25
+
 video_capture = opencv.VideoCapture(video_file_name)
 
 while(True):
