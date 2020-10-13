@@ -130,3 +130,5 @@ dmypy.json
 
 # Avi
 *.avi
+
+.DS_Store
