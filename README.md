@@ -1,5 +1,5 @@
 # Social Distancing Detector
-This repository contains sample Python code for creating Social Distancing AI Detector (a companion code for CodeProject articles)
+This repository contains sample Python code for creating AI Social Distancing Detector (a companion code for CodeProject articles)
 
 # Instructions
 ## Part I
