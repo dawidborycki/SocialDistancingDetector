@@ -1,6 +1,7 @@
 import cv2 as opencv
+import common
 
-file_path = 'Lena.png'
+file_path = common.LENA_FILE_PATH
 
 # Load image
 lena_img = opencv.imread(file_path, opencv.IMREAD_GRAYSCALE)
