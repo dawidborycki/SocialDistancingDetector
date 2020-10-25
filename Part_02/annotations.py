@@ -3,6 +3,19 @@ import common
 
 rectangle_points = []
 
+def draw_rectangle_and_label(img, label):
+    opencv.rectangle(img, rectangle_points[0], rectangle_points[1], 
+        common.GREEN, common.LINE_THICKNESS)
+
+    text_origin = (rectangle_points[0][0], rectangle_points[0][1] - common.TEXT_OFFSET)
+
+    opencv.putText(img, label, text_origin, 
+        common.FONT_FACE, 
+        common.FONT_SCALE, 
+        common.GREEN, 
+        common.FONT_THICKNESS, 
+        common.FONT_LINE)
+
 def display_lena_image(draw_rectangle):
     # File path
     file_path = common.LENA_FILE_PATH
@@ -12,23 +25,13 @@ def display_lena_image(draw_rectangle):
 
     # Draw rectangle
     if(draw_rectangle):
-        opencv.rectangle(lena_img, rectangle_points[0], rectangle_points[1], 
-            common.GREEN, common.LINE_THICKNESS)
-
-        text_origin = (rectangle_points[0][0], rectangle_points[0][1] - common.TEXT_OFFSET)
-
-        opencv.putText(lena_img, 'Lena', text_origin, 
-            common.FONT_FACE, 
-            common.FONT_SCALE, 
-            common.GREEN, 
-            common.FONT_THICKNESS, 
-            common.FONT_LINE)
+        draw_rectangle_and_label(lena_img, 'Lena')
 
     # Show image
     opencv.imshow(common.WINDOW_NAME, lena_img)
     opencv.waitKey(0)
     
-def on_mouse_move(event, x, y, flags, user_data):
+def on_mouse_move(event, x, y, flags, param):
     # User pressed left mouse button and started drawing the rectangle    
     if(event == opencv.EVENT_LBUTTONDOWN):   
         rectangle_points.clear()
