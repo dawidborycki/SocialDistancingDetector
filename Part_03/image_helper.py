@@ -21,10 +21,13 @@ class ImageHelper(object):
             common.FONT_LINE)
             
     @staticmethod
-    def display_image_with_detected_objects(image, inference_results):                
+    def display_image_with_detected_objects(image, inference_results):
+        # Prepare window
+        opencv.namedWindow(common.WINDOW_NAME, opencv.WINDOW_GUI_NORMAL)
+
         # Draw rectangles and labels on the image
         for i in range(len(inference_results)):
-            current_result = inference_results[i]            
+            current_result = inference_results[i]
             ImageHelper.draw_rectangle_and_label(image, current_result['rectangle'], current_result['label'])
 
         # Display image

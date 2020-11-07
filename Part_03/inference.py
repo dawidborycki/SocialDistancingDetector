@@ -27,7 +27,7 @@ class Inference(object):
         # Store input image dimensions
         self.input_image_height = self.input_details[0]['shape'][1]
         self.input_image_width = self.input_details[0]['shape'][2]
-
+        
     def load_labels_from_file(self, file_path):
         """ Loads image labels from the text file
         : file_path: A full path to the text file, containing image labels
@@ -95,10 +95,10 @@ class Inference(object):
         return results    
 
     def convert_bounding_box_to_rectangle_points(self, bounding_box, input_image_size):
-        height = input_image_size[0]
-        width = input_image_size[1]
+        width = input_image_size[0]
+        height = input_image_size[1]            
 
-        top_left_corner = (int(bounding_box[0] * height), int(bounding_box[1] * width))
-        bottom_right_corner = (int(bounding_box[2] * height), int(bounding_box[3] * width))
+        top_left_corner = (int(bounding_box[1] * width), int(bounding_box[0] * height))
+        bottom_right_corner = (int(bounding_box[3] * width), int(bounding_box[2] * height))
         
         return (top_left_corner, bottom_right_corner)
