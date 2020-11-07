@@ -1,15 +1,14 @@
 import cv2 as opencv
 
 class Camera(object):
-    def __init__(self):        
+    def __init__(self):
         # Initialize the camera capture
         try:
             self.camera_capture = opencv.VideoCapture(0)
         except expression as identifier:
             print(identifier)
-        
-        
-    def capture_frame(self, ignore_first_frame):        
+                
+    def capture_frame(self, ignore_first_frame):
         # Get frame, ignore the first one if needed
         if(ignore_first_frame):
             self.camera_capture.read()
