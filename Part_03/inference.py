@@ -102,3 +102,17 @@ class Inference(object):
         bottom_right_corner = (int(bounding_box[3] * width), int(bounding_box[2] * height))
         
         return (top_left_corner, bottom_right_corner)
+
+    def object_label_filter(self, inference_result, label):
+        return inference_result['label'] == label
+
+    def detect_people(self, image, threshold):
+        # Detect objects
+        all_objects = self.detect_objects(image, threshold)
+
+        # Return only those with label of 'person'
+        people = filter(lambda r: r['label'] == 'person', all_objects)
+
+        return list(people)
+
+

@@ -4,6 +4,7 @@ sys.path.insert(1, '../Part_03/')
 
 from inference import Inference as model
 from image_helper import ImageHelper as imgHelper
+
 from camera import Camera as camera
 
 if __name__ == "__main__": 
