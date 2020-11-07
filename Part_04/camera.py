@@ -13,11 +13,11 @@ class Camera(object):
         if(ignore_first_frame):
             self.camera_capture.read()
                     
-        (capture_status, self.current_camera_frame) = self.camera_capture.read()
+        (capture_status, current_camera_frame) = self.camera_capture.read()
         
         # Verify capture status
         if(capture_status):
-            return self.current_camera_frame
+            return current_camera_frame
 
         else:
             # Print error to the console

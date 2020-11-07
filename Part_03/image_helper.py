@@ -21,7 +21,7 @@ class ImageHelper(object):
             common.FONT_LINE)
             
     @staticmethod
-    def display_image_with_detected_objects(image, inference_results):
+    def display_image_with_detected_objects(image, inference_results, delay = 0):
         # Prepare window
         opencv.namedWindow(common.WINDOW_NAME, opencv.WINDOW_GUI_NORMAL)
 
@@ -34,4 +34,4 @@ class ImageHelper(object):
         opencv.imshow(common.WINDOW_NAME, image)
             
         # Wait until user presses any key
-        opencv.waitKey(0)
+        opencv.waitKey(delay)
