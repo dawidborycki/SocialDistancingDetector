@@ -35,3 +35,29 @@ class ImageHelper(object):
             
         # Wait until user presses any key
         opencv.waitKey(delay)
+
+    @staticmethod
+    def draw_rectangle_centers(image, rectangle_centers):        
+        for i in range(len(rectangle_centers)):  
+            opencv.circle(image, rectangle_centers[i], common.CIRCLE_RADIUS, common.YELLOW, common.THICKNESS_FILL)
+
+    @staticmethod
+    def indicate_people_that_are_too_close(image, people_that_are_too_close, delay=0):
+        # Prepare window
+        opencv.namedWindow(common.WINDOW_NAME, opencv.WINDOW_GUI_NORMAL)
+
+        # Iterate over objects (that is a pair of rectangle_points)
+        for i in range(len(people_that_are_too_close)):
+            
+            # Draw each rectangle
+            for j in range(len(people_that_are_too_close[i])):
+                rectangle_points = people_that_are_too_close[i][j]
+
+                opencv.rectangle(image, rectangle_points[0], rectangle_points[1], 
+                    common.RED, common.LINE_THICKNESS)
+        
+        # Display image
+        opencv.imshow(common.WINDOW_NAME, image)
+            
+        # Wait until user presses any key
+        opencv.waitKey(delay)

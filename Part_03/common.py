@@ -4,7 +4,15 @@ WINDOW_NAME = 'MobileNet'
 
 # Colors (BGR)
 GREEN = (0, 255, 0)
+YELLOW = (0, 255, 255)
+RED = (0, 0, 255)
+
+# Thickness
 LINE_THICKNESS = 3
+THICKNESS_FILL = -1
+
+# Radius
+CIRCLE_RADIUS = 15
 
 # Image labeling parameters
 FONT_FACE = opencv.FONT_HERSHEY_PLAIN

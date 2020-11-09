@@ -103,9 +103,6 @@ class Inference(object):
         
         return (top_left_corner, bottom_right_corner)
 
-    def object_label_filter(self, inference_result, label):
-        return inference_result['label'] == label
-
     def detect_people(self, image, threshold):
         # Detect objects
         all_objects = self.detect_objects(image, threshold)
