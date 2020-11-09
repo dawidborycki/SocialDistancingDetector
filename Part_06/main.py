@@ -42,4 +42,4 @@ if __name__ == "__main__":
         imgHelper.draw_rectangle_centers(frame, rectangle_centers)   
 
         # Display detection results
-        imgHelper.display_image_with_detected_objects(frame, results)                        
+        imgHelper.display_image_with_detected_objects(frame, results, delay_between_frames)

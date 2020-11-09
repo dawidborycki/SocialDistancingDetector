@@ -1,5 +1,6 @@
 import sys
 sys.path.insert(1, '../Part_03/')
+sys.path.insert(1, '../Part_05/')
 sys.path.insert(1, '../Part_06/')
 
 from inference import Inference as model
@@ -41,7 +42,7 @@ if __name__ == "__main__":
         
         # Find objects that are too close
         proximity_distance_threshold = 50
-        objects_that_are_too_close = analyzer.find_people_that_are_too_close(results, proximity_distance_threshold)
+        people_that_are_too_close = analyzer.find_people_that_are_too_close(results, proximity_distance_threshold)
 
         # Indicate those objects in the image        
-        imgHelper.indicate_people_that_are_too_close(frame, objects_that_are_too_close, delay_between_frames)        
+        imgHelper.indicate_people_that_are_too_close(frame, people_that_are_too_close, delay_between_frames)              
