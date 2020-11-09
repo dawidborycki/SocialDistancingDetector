@@ -21,8 +21,7 @@ if __name__ == "__main__":
     video_reader = videoReader(video_file_path)
 
     # Detection and preview parameters
-    score_threshold = 0.4
-    detect_only_people = True
+    score_threshold = 0.4    
     delay_between_frames = 5
 
     # Perform object detection in the video sequence
@@ -34,15 +33,14 @@ if __name__ == "__main__":
         if(frame is None):
             break
         
-        # Perform detection
-        if(detect_only_people):
-            results = ai_model.detect_people(frame, score_threshold)
-        else:
-            results = ai_model.detect_objects(frame, score_threshold)        
-        
-        # Find objects that are too close
+        # Perform detection        
+        results = ai_model.detect_people(frame, score_threshold)        
+
+        # Find people that are too close
         proximity_distance_threshold = 50
-        people_that_are_too_close = analyzer.find_people_that_are_too_close(results, proximity_distance_threshold)
+        people_that_are_too_close = analyzer.find_people_that_are_too_close(
+            results, proximity_distance_threshold)
 
         # Indicate those objects in the image        
-        imgHelper.indicate_people_that_are_too_close(frame, people_that_are_too_close, delay_between_frames)              
+        imgHelper.indicate_people_that_are_too_close(
+            frame, people_that_are_too_close, delay_between_frames)
